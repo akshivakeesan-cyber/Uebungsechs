@@ -1,30 +1,56 @@
 package h3;
-import java.util.Arrays;
-public class H3_main {
-	
 
+public class H3_main {
+
+	public static void main (String []args) {
+		
+	int []a = {1,2,3}; 
+	int []b = {1,2,3};
+		
+	System.out.println(compareArraysVal(a,b));	
+	}
 	
-		public static void main ( String []args)
+	
+	public static boolean compareArraysVal(int []a, int[]b)
+	{
+		if (a.length != b.length)
 		{
-			int a [] = {1, 10, -3, 2}; 
-			
-			System.out.println(methode(a));
+			return false;
 		}
 		
-		public static int methode(int[] a) {
+		
+		
+		for (int i = 0; i<a.length; i++)
+		{
+			int wert = a[i];
 			
-			if (a.length < 2) return -1;
+			int zaehlendeA = 0;
+			int zaehlendeB = 0;
 			
-			for (int c = 0; c<a.length; c++)
+			
+			for (int j = 0; j < a.length; j++) {
+				
+				if(a[j]== wert)
+				{
+					zaehlendeA++;
+				}
+				
+			}
+			for(int k = 0; k<a.length; k++)
 			{
-				a[c] = Math.abs(a[c]);
+				if (b[k] == wert)
+				{
+					zaehlendeB++;
+				}
 			}
 			
-			Arrays.sort(a);
-			
-			int zweitGroße = a[a.length -2];
-	        
-	        
-	        return zweitGroße;
-	    }
+			if (zaehlendeA != zaehlendeB)
+			{
+				return false;
+			}
+		}
+		
+		return true; 
+	}
+	
 }
